@@ -27,7 +27,7 @@ func Sort(data sort.Interface, idxs ...int) (changed bool) {
 	// Determine index range (b:e) to check
 	var b, e int
 	l := n // Define limit of indices checked for 'changedness'
-	switch ni := len(idxs); ni {
+	switch len(idxs) {
 	case 0:
 		b, e = 1, n
 	case 1:
