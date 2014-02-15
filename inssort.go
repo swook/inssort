@@ -16,12 +16,12 @@ var ErrInvalidIndices = errors.New("inssort: Invalid indices provided.")
 //  - Only one index specified: idxs[0]:idxs[0]+1
 //  - Two indices specified:    idxs[0]:idxs[1]
 // If idxs[2] specified, it only flags changes on idxs[2] first entries
-func Sort(data sort.Interface, idxs ...int) (changed bool) {
+func Sort(data sort.Interface, idxs ...int) (changed bool, err error) {
 	n := data.Len()
 
 	// Nothing to sort if none or single entry
 	if n < 2 {
-		return false
+		return
 	}
 
 	// Determine index range (b:e) to check
@@ -41,7 +41,8 @@ func Sort(data sort.Interface, idxs ...int) (changed bool) {
 
 	// Abort if invalid indices supplied
 	if b > e || b < 0 || e-1 > n {
-		panic(ErrInvalidIndices)
+		err = ErrInvalidIndices
+		return
 	}
 
 	// For each entry that needs to be considered

@@ -37,7 +37,7 @@ func TestSort(t *testing.T) {
 	for i, test := range sortTests {
 		in = make(sort.IntSlice, test.in.Len())
 		copy(in, test.in)
-		changed = Sort(test.in, test.idxs...)
+		changed, _ = Sort(test.in, test.idxs...)
 		if changed != test.changed || !reflect.DeepEqual(test.in, test.out) {
 			t.Fatalf("[%d] Sort(%v, %v) = (%v, %v), want (%v, %v)",
 				i, in, test.idxs, test.in, changed, test.out, test.changed)
