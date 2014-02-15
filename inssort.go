@@ -12,9 +12,9 @@ var ErrInvalidIndices = errors.New("inssort: Invalid indices provided.")
 
 // Sort sorts data using insertion sort. It considers data[idxs[0]:idxs[1]] as
 // new data, where the indices considered are:
-// - No range specified:       1:
-// - Only one index specified: idxs[0]:idxs[0]+1
-// - Two indices specified:    idxs[0]:idxs[1]
+//  - No range specified:       1:
+//  - Only one index specified: idxs[0]:idxs[0]+1
+//  - Two indices specified:    idxs[0]:idxs[1]
 // If idxs[2] specified, it only flags changes on idxs[2] first entries
 func Sort(data sort.Interface, idxs ...int) (changed bool) {
 	n := data.Len()
