@@ -1,3 +1,6 @@
+// Package inssort provides an insertion sort function with entry order changes
+// indication and the specification of indices for changed entries for more
+// efficient sorting.
 package inssort
 
 import (
@@ -5,9 +8,7 @@ import (
 	"sort"
 )
 
-var (
-	ErrInvalidIndices = errors.New("inssort: Invalid indices provided.")
-)
+var ErrInvalidIndices = errors.New("inssort: Invalid indices provided.")
 
 // Sort sorts data using insertion sort. It considers data[idxs[0]:idxs[1]] as
 // new data, where the indices considered are:

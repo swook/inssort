@@ -8,14 +8,12 @@ A possible use-case of this library is:
 
 1. A list of data is kept (eg. top ranked players).
 2. New data is appended (good for insertion sort to be used).
-3. Know if ordering has changed to reduce database transactions.
+3. Know if the order of entries has changed (eg. can reduce database transactions).
 4. *[Optionally]* Check changes for only the top N entries.
 
 ---
 
-inssort.Sort has the following type signature:
-
-    func Sort(sort.Interface, ...int) bool
+inssort.Sort has the type signature: `func Sort(sort.Interface, ...int) bool`.
 
 The variadic int argument can be provided in the following ways.
 
